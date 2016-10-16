@@ -12,9 +12,10 @@
 
 #####**UML (Unified Modeling Language)**
 V roce 1997 byla vytvořena první verze modelovacího jazyka UML. Je výsledkem sjednocení různých metod, syntaxí pro modelování. Jedná se o souhrn především grafických notací k vyjádření analytických návrhových modelů. Umožňuje modelovat jednoduché i složité aplikace pomocí stejné formální syntaxe, a proto mohou být výsledky sdíleny s ostatními návrháři. UML je také jazyk pro vizualizaci, specifikaci, stavbu a dokumentaci softwarových systémů.
+[TODO: TADY CHYBI CITACE odkud tahle definice je]
 
 #####**CASE nástroje**
-Jedná se o nástroje pro podporu analýzy a návrhu aplikací. V současnosti všechny ve světě rozšířené objektově orientované CASE nástroje vycházejí z modelovacího jazyka UML. Běžně užívané CASE nástroje jsou Rational Rose, Select Component Architect, PowerDesigner, AllFusion atd.
+Jedná se o nástroje pro podporu analýzy a návrhu aplikací. V současnosti všechny ve světě rozšířené objektově orientované CASE nástroje vycházejí z modelovacího jazyka UML. Běžně užívané CASE nástroje jsou Rational Rose, Select Component Architect, PowerDesigner, AllFusion atd., Enterprise Architect
 
 #####**Případy užití a testování**
 Scénář případu užití je ideálním výchozím bodem pro tvorbu testovacích scénářů. Scénář případu užití vlastně definuje základní testovací požadavky na funkčnost budoucí aplikace. Je to sekvence kroků popisujících interakci mezi aktérem a systémem. Případ užití je sada scénářů, které spojuje dohromady společný cíl. V praxi je obvykle pravidlem, že případ užití má základní scénář typu "všechno šlo hladce" a řadu alternativních scénářů, které představují postup při zjištění různých chyb a mimořádných stavů.
@@ -36,7 +37,7 @@ _(KANISOVÁ, H. - MÜLLER M. UML srozumitelně. 1. vyd. 2004. ISBN 80-251-0231-9
 
 
 zadavatel [actor] -> zaznamenání změřených hodnot 
-vedouci [actor] -> jednou za měsíc vygeneruje report do pdf
+vedouci [actor] -> jednou za měsíc vygeneruje report (TODO: jaky report?) do pdf
 vedoucí [actor] -> vyhledávání v datech 
 
 ####**Sběr požadavků** *z toho vyextrahuju analýzu, popis stávající situace*
@@ -49,7 +50,7 @@ Stávajícího řešení:
 
 Výhody | Nevýhody
 ------------ | -------------
-Všichni to znají | Není validace dat (možnost překlepu)
+Všeobecná uživatelská znalost | Není validace dat (možnost překlepu)
 Velmi jednoduchá manipaluce (zadávání) | Chybí Auditing (Kdo co kdy změnil)
 Stačí pouze jeden SW | Historizace (Změna dat v čase)
 Stejný interface | Neexistence zálohování
@@ -60,7 +61,7 @@ Všichni to znaj | Nulové zabezpečení (kdokoliv kdo má přístup na pc mùž
 
 
 **2, Návrh řešení ** 
-po zhodnocení následující analýzy kdy nìkteré z tìchto problém se dají řešit pomocí rùzných způsobů které se liší dle složitosti realizace
+Po zhodnocení následující analýzy, kdy některé z těchto problémů se dají řešit pomocí různých způsobů, které se liší dle složitosti realizace. [TODO: ta veta mi nedava smysl, bud bych ji uplne smazal nebo nejak prepsal, u krabicoveho reseni bych napsal ze na takovyhle spcificky problem zadny SW produkt nebude existovat]
 
 1. Zachování stávajícího SW a změna způsobu použití
     * Přenesení soboru na sdílený disk
@@ -74,7 +75,7 @@ Výhody | Nevýhody
 
 		
 **3, výběr řešení**
-		Dùvod: Pro účely bakalářské práce jsem se rozhodl vyřešit všechny stávající negativa pro druhou možnost:
+Pro účely bakalářské práce jsem se rozhodl vyřešit všechny stávající negativa vývojem SW na klíč.
 
 **4, Vývoj**
 
@@ -82,14 +83,14 @@ Výhody | Nevýhody
  1. Metodika vývoje
 Metodiky vývoje aplikací jsou jedněmi z nejdůležitějších produktů softwarového inženýrství. Cílem bylo se vždy přizpůsobit konkrétním požadavkům kladeným na software v dané době a odstranit nedostatky vývoje aplikací. Dnešní - agilní - metodiky se pokouší vést vývoj tak, aby výsledný produkt byl dodán co možná nejdříve. Rychlost je jedním ze základních požadavků na vývoj softwaru v dnešní době.
 Jednotlivé metodiky:
-- Metodika napiš a oprav - prvopočátek vývoje programů (50. léta 20. století) - modle spočíval v sepsání aplikace, následném předání do provozu a v opravování chyb
+- Metodika napiš a oprav - prvopočátek vývoje programů (50. léta 20. století) - model spočíval v sepsání aplikace, následném předání do provozu a v opravování chyb
 - Striktní posloupnost fází - (r. 1957) tzv. stagewise model žignotního cyklu (definice problémů, specifikace požadavků, architektura a návrh, implementace, integrace, provoz), problémem byla naprostá absence jakékoliv zpětné vazby
 - Vodopádový model - (v 70. letech) od svého předchůdce stagewise modelu se liší především snahou o jakousi zpětnou vazbu
 - Spirálový model - (r. 1985) reagoval na některé nedostatky vodopádového modelu, zavádí dva inovativní koncepty (iterativní přístup - vývoj aplikace v opakovaných krocích a opakovanou analýzu rizik)
 - Další modely - z vodopádového modelu dále vznikly např. Test Development, Exploratory Programming, Prototyping Model, Transformation Model, dále v 70.  letech Yourdonova metodika,  v 80. letech SSADM, v 90. letech první zástupce prostorově orientovaných metodik např. Rational Unified Process
-- začátkem 3. tisíciletí - agilní metodiky - extrémní programování, Crystal, SCRUM Development Process, Aspect Oriented Programming atd. - metodiky umožňující co nejrychlejší vývoj softwaru, jeho průběžnou údžbu a reakci na měnící se podmínky a zadání
+- začátkem 3. tisíciletí - agilní metodiky - extrémní programování (XP), TDD (Test Driven Development - vývoj řízen testy), Crystal, SCRUM, LEAN atd. - metodiky umožňující co nejrychlejší vývoj softwaru, jeho průběžnou údžbu a reakci na měnící se podmínky a zadání
 _(KADLEC, V. Agilní programování. 1. vyd. 2004. ISBN 80-251-0342-0)_ 	
-- prototypy **DOPSAT** <br>zdroj: https://www.cms.gov/research-statistics-data-and-systems/cms-information-technology/xlc/downloads/selectingdevelopmentapproach.pdf
+- prototypy **DOPSAT** zdroj: https://www.cms.gov/research-statistics-data-and-systems/cms-information-technology/xlc/downloads/selectingdevelopmentapproach.pdf
 **DOPSAT Zvolení metodiky a proč**
  2. Softwarová architektura
 V případě softwarové architektury je systémem, na kterém architekturu definujeme, jeden softwarový produkt, tedy jedna softwarová aplikace. Hlavními komponentami, jejichž strukturu a vztahy architektura definuje, jsou programové moduly aplikace.
@@ -117,26 +118,26 @@ _(BRUCKNER, T. et al. Tvorba informačních systémů. 1. vyd. 2012. ISBN 978-80
 **IDE vs textový editor vs programátorský textový editor**
 
  **IDE**
-Integrované vývojové prostředí (IDE) je softwarová sada, která slučuje základní nástroje pro vývojáře k psaní a testování software. Typicky, IDE obsahuje editor kódu, kompilátor nebo interpret a debugger, že developer přistupuje prostřednictvím jednotného grafického uživatelského rozhraní (GUI). IDE může být samostatná aplikace, nebo může být součástí jednoho či více existujících a kompatibilních aplikací. _(1)_ IDE dále může obsahovat:
+Integrované vývojové prostředí (IDE) je softwarová sada, která slučuje základní nástroje pro vývojáře k psaní a testování software. Typicky, IDE obsahuje editor kódu, kompilátor nebo interpret a debugger, kam vývojář přistupuje prostřednictvím jednotného grafického uživatelského rozhraní (GUI). IDE může být samostatná aplikace, nebo může být součástí jednoho či více existujících a kompatibilních aplikací. _(1)_ IDE dále může obsahovat:
 - automatické dokončování kódu
 - přístup k databázím
 - optimalizace
 - řízení verzí 
 
- Mezi nejznámější IDE patří NetBeans, IntelliJ, Eclipse, Komodo a BlueJ
+ Mezi nejznámější IDE patří IntelliJ, Eclipse, Visual Studio, NetBeans, Komodo a BlueJ
 
  **Textový editor**
 Textový editor je program, který umožňuje otevírat, zobrazovat a upravovat textové soubory. Na rozdíl od textových procesorů, textových editor nepřidává formátování textu, místo toho se zaměřuje na editační funkce pro prostý text. _(2)_
 Např. Microsoft Notepad, TextEdit
 
 
- **Programátorské textový editor**
-Jsou to textové editory, které jsou vyrobeny speciálně pro psaní programovacích jazyků. Z důvodů odlišení se nazývají programátorské textové editory, ale většinou se jím říká pouze textové editory. Stále se zabývají pouze textovými soubory, ale mají také některé užitečné funkce pro programátory _(3)_: 
+ **Programátorský textový editor**
+Jsou to textové editory, které jsou vyrobeny speciálně pro použití programovacích jazyků. Z důvodů odlišení se nazývají programátorské textové editory, ale většinou se jím říká pouze textové editory. Stále se zabývají pouze textovými soubory, ale mají také některé užitečné funkce pro programátory _(3)_: 
 - zvýrazňování syntaxe ( pravidla pro zápis formálního jazyka )
 - automatická editace kódu
 - kompilační a spouštěcí příkazy 
 
- Např. Atom, UltraEdit, Sublime Text, Visual Studio Code ...
+ Např. Atom, UltraEdit, Sublime Text, Visual Studio Code, Text Mate, emacs, vim ...
  Pro porovnání jednotivých IDE a textových editorů je možné použit webové srovnání na adrese www.vschart.com
 
 
@@ -149,20 +150,23 @@ Jsou to textové editory, které jsou vyrobeny speciálně pro psaní programova
 3. http://java.about.com/od/gettingstarted/a/ideversuseditor.htm
 
  4. Použité technologie
- Jako řešení jsme se rozhodl pro webovou aplikaci (z dùvodù nenutnosti instalace aplikace na lokálních pc) vytvořenou pomocí programovacích jazyků PHP, Javascriptu (a jeho knihovny jQuery), stylovacího jazyka CSS a SŘBD (Systém řízení báze dat) MySQL dále db.
+ Řešení budu realizovat jako webovou aplikaci. Server bude tvořit kód v jazyce PHP komunikující s databázi MySQL.
+ Klientská strana (GUI) bude tvořeno standardní kombinací HTML (text a struktura), CSS (stylovací jazyk) a jazyk JavaScript pro dynamické problémy (např. validace dat na klientovy, před odesláním na server)
+ 
 Důvody:
 **PHP**
 - dobře dokumentovaný
 - velká rozšířitelnost
 - velká komunita
 - snadné nasazení
+- rychlost vývoje 
 
  **Javascript** 
 	z důvodu uživatelské přívětivosti UX - user experience (Validace na straně klienta)
 **jQuery**
-	nejrošířenější knihovna (znovupouželný kód) pro Javascript
+	nejrozšířenější knihovna (znovupouželný kód) pro Javascript
 **MySQL**
-Dosavadní SŘBD
+        Současná infrastruktura, kam se bude SW nasazovat již používa toto SŘBD
 
 		 
  5. implementace:
@@ -217,32 +221,32 @@ zvazuju technickou narocnost reseni
 
 
 ####Poznámky
-Návrh řešení (client server architektura, serverová část PHP na Apachi, klientská část v prohlížeči js (jquery), komunikace pomocí http) 
-<br>		
+Návrh řešení (client server architektura, serverová část PHP na Apache HTTP server, klientská část v prohlížeči JS (jQuery), komunikace pomocí HTTP) 
+
 
 ####Zkratky
- SŘBD - systém řízení báze dat
- db - databáze
- js - javascript
- ajax - synchronous JavaScript and XML
- GUI - Graphical unit interface, grafické uživatelské rozhraní
- ER model - Entity-relationship model - entitově vztahový model
- PDO - PHP data object
- UX - user experience
-<br>		
+ SŘBD - systém řízení báze dat  
+ DB - databáze  
+ JS - javascript  
+ AJAX - asynchronous JavaScript and XML  
+ GUI - Graphical unit interface, grafické uživatelské rozhraní  
+ ER model - Entity-relationship model - entitově vztahový model  
+ PDO - PHP Data Object  
+ UX - user experience	
+
 
 ####Zdroje
- Softwarové inžeýrství - Ian Sommerville
- Agilní programování
- Desilované UML
- UML
- OWASP Top ten
- Návrh databáze - rozdělení databází, výhody, nevýhody
- php.net devbook
- w3schools.com
- Kniha AJAX
- Use Case??
- Dokumentace
- GIT
- jQuery
- Něco o migraci dat
+ Softwarové inžeýrství - Ian Sommerville  
+ Agilní programování  
+ Destilované UML  
+ UML  
+ OWASP Top ten  
+ Návrh databáze - rozdělení databází, výhody, nevýhody  
+ php.net devbook  
+ w3schools.com  
+ Kniha AJAX  
+ Use Case??  
+ Dokumentace  
+ GIT  
+ jQuery  
+ Něco o migraci dat  
