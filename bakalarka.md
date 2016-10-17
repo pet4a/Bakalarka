@@ -12,7 +12,6 @@
 
 #####**UML (Unified Modeling Language)**
 V roce 1997 byla vytvořena první verze modelovacího jazyka UML. Je výsledkem sjednocení různých metod, syntaxí pro modelování. Jedná se o souhrn především grafických notací k vyjádření analytických návrhových modelů. Umožňuje modelovat jednoduché i složité aplikace pomocí stejné formální syntaxe, a proto mohou být výsledky sdíleny s ostatními návrháři. UML je také jazyk pro vizualizaci, specifikaci, stavbu a dokumentaci softwarových systémů.
-[TODO: TADY CHYBI CITACE odkud tahle definice je]
 
 #####**CASE nástroje**
 Jedná se o nástroje pro podporu analýzy a návrhu aplikací. V současnosti všechny ve světě rozšířené objektově orientované CASE nástroje vycházejí z modelovacího jazyka UML. Běžně užívané CASE nástroje jsou Rational Rose, Select Component Architect, PowerDesigner, AllFusion atd., Enterprise Architect
@@ -27,7 +26,7 @@ Umožňuje popsat chování systému z hlediska uživatele. V diagramu se specif
 **Případ užití**(Use Case) specifikuje část funkcionality systému, kterou využívá aktér a která plní určitý cíl. Funkcionalita vyjádřená případem užití se realizuje jako posloupnost interakcí mezi aktérem a systémem. Tato posloupnost interakcí se označuje jako scénář případů užití. Jedná se o množinu možných scénářů. 
 **Vztah** (Relation) mezi aktérem a případem užití vyjadřuje tok informace mezi vnějším prvkem (aktérem) a případem užití. Znázorňuje se čarou. 
 _(BRUCKNER, T. et al. Tvorba informačních systémů. 1. vyd. 2012. ISBN 978-80-247-4153-6)_
-				
+        
 Kromě vztahů mezi případy užití a aktéry můžeme identifikovat také několik druhů vztahů mezi případy užití samotnými. Jedná se o tyto vztahy:
 
  - relace include tam, kde existuje podobná nebo stejná část sekvence scénáře, opakující se ve více případech užití, není vhodné udržovat více kopií shodných částí scénářů, základní případ užití není bez rozšiřujícího případu užití kompletní 
@@ -66,14 +65,15 @@ Po zhodnocení následující analýzy, kdy některé z těchto problémů se da
 1. Zachování stávajícího SW a změna způsobu použití
     * Přenesení soboru na sdílený disk
     * Nastavení funkce sdílení (podívat se do officu na funkci sdílení)
-    * Nastavení zálohování				
+    * Nastavení zálohování        
 2. Krabicové řesení http://knihy.cpress.cz/softwarove-inzenyrstvi.html#
-3. Vlastní SW	
-Výhody | Nevýhody
+3. Vlastní SW 
+
+  Výhody | Nevýhody
 ------------ | -------------
 řešení všech nevýhod | časová náročnost
 
-		
+    
 **3, výběr řešení**
 Pro účely bakalářské práce jsem se rozhodl vyřešit všechny stávající negativa vývojem SW na klíč.
 
@@ -89,12 +89,14 @@ Jednotlivé metodiky:
 - Spirálový model - (r. 1985) reagoval na některé nedostatky vodopádového modelu, zavádí dva inovativní koncepty (iterativní přístup - vývoj aplikace v opakovaných krocích a opakovanou analýzu rizik)
 - Další modely - z vodopádového modelu dále vznikly např. Test Development, Exploratory Programming, Prototyping Model, Transformation Model, dále v 70.  letech Yourdonova metodika,  v 80. letech SSADM, v 90. letech první zástupce prostorově orientovaných metodik např. Rational Unified Process
 - začátkem 3. tisíciletí - agilní metodiky - extrémní programování (XP), TDD (Test Driven Development - vývoj řízen testy), Crystal, SCRUM, LEAN atd. - metodiky umožňující co nejrychlejší vývoj softwaru, jeho průběžnou údžbu a reakci na měnící se podmínky a zadání
-_(KADLEC, V. Agilní programování. 1. vyd. 2004. ISBN 80-251-0342-0)_ 	
+_(KADLEC, V. Agilní programování. 1. vyd. 2004. ISBN 80-251-0342-0)_  
 - prototypy **DOPSAT** zdroj: https://www.cms.gov/research-statistics-data-and-systems/cms-information-technology/xlc/downloads/selectingdevelopmentapproach.pdf
 **DOPSAT Zvolení metodiky a proč**
+![Obrázek prototyping](https://raw.githubusercontent.com/pet4a/Bakalarka/master/Obr%C3%A1zky/Prototyping.bmp)
+  
  2. Softwarová architektura
 V případě softwarové architektury je systémem, na kterém architekturu definujeme, jeden softwarový produkt, tedy jedna softwarová aplikace. Hlavními komponentami, jejichž strukturu a vztahy architektura definuje, jsou programové moduly aplikace.
-	 	
+    
  **Klient / server architektura **- V klient/server architektuře je aplikace rozdělena na dva nebo více kooperujících programů. Klientem je ten program, který vyžaduje provedení určité služby (funkcionality), zatímco serverem je ten, který danou službu na požádání poskytuje. Jeden a tentýž program přitom jednou může vystupovat jako klient, jindy jako server. Klient i server mohou být umístěny buď na tomtéž počítači, nebo mohou pracovat na různých počítačích počítačové sítě.  
     
     Výhody | Nevýhody
@@ -118,7 +120,7 @@ _(BRUCKNER, T. et al. Tvorba informačních systémů. 1. vyd. 2012. ISBN 978-80
 **IDE vs textový editor vs programátorský textový editor**
 
  **IDE**
-Integrované vývojové prostředí (IDE) je softwarová sada, která slučuje základní nástroje pro vývojáře k psaní a testování software. Typicky, IDE obsahuje editor kódu, kompilátor nebo interpret a debugger, kam vývojář přistupuje prostřednictvím jednotného grafického uživatelského rozhraní (GUI). IDE může být samostatná aplikace, nebo může být součástí jednoho či více existujících a kompatibilních aplikací. _(1)_ IDE dále může obsahovat:
+Integrované vývojové prostředí (IDE) je softwarová sada, která slučuje základní nástroje pro vývojáře k psaní a testování software. Typicky, IDE obsahuje editor kódu, kompilátor nebo interpret a debugger, kam vývojář přistupuje prostřednictvím jednotného grafického uživatelského rozhraní (GUI). IDE může být samostatná aplikace, nebo může být součástí jednoho či více existujících a kompatibilních aplikací. **(1)** IDE dále může obsahovat:
 - automatické dokončování kódu
 - přístup k databázím
 - optimalizace
@@ -127,12 +129,12 @@ Integrované vývojové prostředí (IDE) je softwarová sada, která slučuje z
  Mezi nejznámější IDE patří IntelliJ, Eclipse, Visual Studio, NetBeans, Komodo a BlueJ
 
  **Textový editor**
-Textový editor je program, který umožňuje otevírat, zobrazovat a upravovat textové soubory. Na rozdíl od textových procesorů, textových editor nepřidává formátování textu, místo toho se zaměřuje na editační funkce pro prostý text. _(2)_
+Textový editor je program, který umožňuje otevírat, zobrazovat a upravovat textové soubory. Na rozdíl od textových procesorů, textových editor nepřidává formátování textu, místo toho se zaměřuje na editační funkce pro prostý text.**(2)**
 Např. Microsoft Notepad, TextEdit
 
 
  **Programátorský textový editor**
-Jsou to textové editory, které jsou vyrobeny speciálně pro použití programovacích jazyků. Z důvodů odlišení se nazývají programátorské textové editory, ale většinou se jím říká pouze textové editory. Stále se zabývají pouze textovými soubory, ale mají také některé užitečné funkce pro programátory _(3)_: 
+Jsou to textové editory, které jsou vyrobeny speciálně pro použití programovacích jazyků. Z důvodů odlišení se nazývají programátorské textové editory, ale většinou se jím říká pouze textové editory. Stále se zabývají pouze textovými soubory, ale mají také některé užitečné funkce pro programátory **(3)**: 
 - zvýrazňování syntaxe ( pravidla pro zápis formálního jazyka )
 - automatická editace kódu
 - kompilační a spouštěcí příkazy 
@@ -153,7 +155,7 @@ Jsou to textové editory, které jsou vyrobeny speciálně pro použití program
  Řešení budu realizovat jako webovou aplikaci. Server bude tvořit kód v jazyce PHP komunikující s databázi MySQL.
  Klientská strana (GUI) bude tvořeno standardní kombinací HTML (text a struktura), CSS (stylovací jazyk) a jazyk JavaScript pro dynamické problémy (např. validace dat na klientovy, před odesláním na server)
  
-Důvody:
+ Důvody:
 **PHP**
 - dobře dokumentovaný
 - velká rozšířitelnost
@@ -162,58 +164,80 @@ Důvody:
 - rychlost vývoje 
 
  **Javascript** 
-	z důvodu uživatelské přívětivosti UX - user experience (Validace na straně klienta)
+  z důvodu uživatelské přívětivosti UX - user experience (Validace na straně klienta)
 **jQuery**
-	nejrozšířenější knihovna (znovupouželný kód) pro Javascript
+  nejrozšířenější knihovna (znovupouželný kód) pro Javascript
 **MySQL**
         Současná infrastruktura, kam se bude SW nasazovat již používa toto SŘBD
 
-		 
+     
  5. implementace:
 a) návrh obrazovek (prototyp)
 uzivatelum ukazu obrazavku a oni mi daji zpetnou vazbu, udelam zmeny a znova ukazu
 zvazuju technickou narocnost reseni
 
  b) skutečná implementace
-  1. graficky navrh 
+  1. grafický návrh 
   
-  2. kod
+  2. kód
   AJAX
-  PDO - pouziva se sql - nezávislost na použitém SŘBD (pouze malá nebo žádná úprava dotazù )
-  git - obecné info, napsat jak jsem verzoval a kde
-
-  3. persistentni vrstva [db] nějaký zdroj
-  ER model [koncepční model] doplnění až bude vymyšlenej table user, option, auditing 
- fyzicky model	
+  PDO - používá se sql - nezávislost na použitém SŘBD (pouze malá nebo žádná úprava dotazù )
+  
+  3. persistentní vrstva [db] nějaký zdroj
+  ER model [koncepční model] doplnění až bude vymyšlenej table user, option, auditing
+  **obrázek**
+ fyzicky model
+ **obrázek**
+ Kardinality
 
                 
-  4. Autorizace a autentizace		SESSION?
+  4. Autorizace a autentizace   SESSION?
                 
   5. Bezpečnost (owasp top ten)
   
   6. Auditing (Kdo co kdy) Obecné info
 
   7. Export do PDF
-                	mPDF
-                	_https://mpdf.github.io/_
-  8. Gitování
-                
-   9. Testování
-                	manuální testování případně další metody testování
+                  mPDF
+                  _https://mpdf.github.io/_
+  8. Správa verzí
+Správa verzí je systém , který zaznamenává změny souboru nebo sady souborů v průběhu času, a uživatel tak může kdykoli obnovit jeho/jejich konkrétní
+verzi (tzv. verzování)**(1)**. Jako systém správy verzí jsem si vybral Git, což je jeden z nejvíce používaných verzovacích systémů. V mém soukromém repozitáři jsem zaznamenával nejenom verze mojí webové aplikace, ale i postupnou tvorbu této bakalářské práce. Bakalářská práce byla kvůli snadnějšimů čtení převedena do jazyka Markdown (Nástroj pro webové vývojáře a sloužící pro převod prostého textu na strukturálně validní XHTML nebo HTML)**(2)**
+   
+     Zdroje:
+     1. CHACON, Scott. Pro Git. Praha: CZ.NIC, c2009. CZ.NIC. ISBN 9788090424814. Dostupné také z: http://kramerius.mzk.cz/search/handle/uuid:08825630-78a3-11e5-99af-005056827e52 
+        2. Daring FireballL: Markdown. Daring FireballL: Markdown [online]. [cit. 2016-10-16]. Dostupné z: http://web.archive.org/web/20040402182332/http://daringfireball.net/projects/markdown/
+
+9. Testování
+manuální testování případně další metody testování
+
+     Metody:
+     
+     **Revize partnerem**
+     revize partnerem se často provádí pouze s programátorem, který posuzovaný kód napsal, a s jedním nebo dvěma dalšími programátory či testery, kteří fungují jako oponenti. Tato malá skupina reviduje programový kód zpravidla společně a hledá v nněm problémny a přehlédnuté věci.
 
 
-	10. migrace stavajicich dat 
-	- čištění
-        - nahrání
-	mysql connector
-	_http://dev.mysql.com/doc/mysql-for-excel/en/_
+     **Průchody** (procházení, walkthrough) 
+Průchody kódu jsou dalším krokem ve zvýšení formálnosti oproti partnerským revizím. Při průchodu kódem prezentuje programátor svůj vlastní kód malé skupině zhruba pěti dalších programátorů a testerů. Oponenti (recenzenti) dostanou kopii softwaru s předstihem před vlastní revizí a mohou jej tak samostatně a prozkoumat a napsat si komentáře a otázky, které budou chtít při revizi přednést. 
+Překladatel (autor kódu) čte řádek za řádkem nebo funkci za funckí a postupně vysvětluje, co která část kódu dělá a proč. Oponenti mu naslouchají ihned e ptají na cokoliv, co se jim zdá podezřelé.**(1)**     
+
+
+     Zdroje:
+     1. PATTON, Ron. Testování softwaru. Vyd. 1. Praha: Computer Press, 2002. Programování. ISBN 80-7226-636-5.
+
+
+10. migrace stavajicich dat 
+- čištění
+- nahrání
+mysql connector
+_http://dev.mysql.com/doc/mysql-for-excel/en/_
 
 
 
 
  6. Dokumentace
-		 		I. programátorská příručka
-		 		II. uživatelská příručka
+        I. programátorská příručka
+        II. uživatelská příručka
 
 
 
@@ -225,6 +249,7 @@ Návrh řešení (client server architektura, serverová část PHP na Apache HT
 
 
 ####Zkratky
+ VCS - Version control systems (systém správy verzí)
  SŘBD - systém řízení báze dat  
  DB - databáze  
  JS - javascript  
@@ -232,7 +257,7 @@ Návrh řešení (client server architektura, serverová část PHP na Apache HT
  GUI - Graphical unit interface, grafické uživatelské rozhraní  
  ER model - Entity-relationship model - entitově vztahový model  
  PDO - PHP Data Object  
- UX - user experience	
+ UX - user experience 
 
 
 ####Zdroje
