@@ -1,6 +1,7 @@
-#**Reengineering procesů** 
+﻿#**Reengineering procesů** 
 
 ##**Teorie**
+Tady bude teorie o reengineeringu 
 
 ##**Praktická část**
 
@@ -8,10 +9,16 @@
 
 ####**Problém**
 
-človek kterej rentgen potrebuje schvaleni -> zvazni zda je rentge v poradku -> schvaleni ci odmitnuti [neresim]
+
+človek kterej rentgen potrebuje schvaleni -> kontrola zda je rentgen v -> schvaleni ci odmitnuti [neresim]
+
+
+###Analýza
+
+K popisu budoucímu a stávajícímu řešení budeme používat notaci UML
 
 #####**UML (Unified Modeling Language)**
-V roce 1997 byla vytvořena první verze modelovacího jazyka UML. Je výsledkem sjednocení různých metod, syntaxí pro modelování. Jedná se o souhrn především grafických notací k vyjádření analytických návrhových modelů. Umožňuje modelovat jednoduché i složité aplikace pomocí stejné formální syntaxe, a proto mohou být výsledky sdíleny s ostatními návrháři. UML je také jazyk pro vizualizaci, specifikaci, stavbu a dokumentaci softwarových systémů.
+V roce 1997 byla vytvořena první verze modelovacího jazyka UML. Je výsledkem sjednocení různých metod, syntaxí pro modelování. Jedná se o souhrn především grafických notací  k vyjádření analytických návrhových modelů. Umožňuje modelovat jednoduché i složité aplikace pomocí stejné formální syntaxe, a proto mohou být výsledky sdíleny s ostatními návrháři. UML je také jazyk pro vizualizaci, specifikaci, stavbu a dokumentaci softwarových systémů.
 
 #####**CASE nástroje**
 Jedná se o nástroje pro podporu analýzy a návrhu aplikací. V současnosti všechny ve světě rozšířené objektově orientované CASE nástroje vycházejí z modelovacího jazyka UML. Běžně užívané CASE nástroje jsou Rational Rose, Select Component Architect, PowerDesigner, AllFusion atd., Enterprise Architect
@@ -36,16 +43,13 @@ _(KANISOVÁ, H. - MÜLLER M. UML srozumitelně. 1. vyd. 2004. ISBN 80-251-0231-9
 
 
 zadavatel [actor] -> zaznamenání změřených hodnot 
-vedouci [actor] -> jednou za měsíc vygeneruje report (TODO: jaky report?) do pdf
+vedouci [actor] -> jednou za měsíc vygeneruje protokol ze záznamu do pdf
 vedoucí [actor] -> vyhledávání v datech 
 
 ####**Sběr požadavků** *z toho vyextrahuju analýzu, popis stávající situace*
 
 **1, Popis stávající situace**
- Z důvodů nedostatku znalostí bylo pùvodní řešení založeno na zapisován záznamů do MS Excel
-
-Stávajícího řešení:
-
+ Puvodní řešení založeno na zapisován záznamů do MS Excel
 
 Výhody | Nevýhody
 ------------ | -------------
@@ -53,8 +57,8 @@ Všeobecná uživatelská znalost | Není validace dat (možnost překlepu)
 Velmi jednoduchá manipaluce (zadávání) | Chybí Auditing (Kdo co kdy změnil)
 Stačí pouze jeden SW | Historizace (Změna dat v čase)
 Stejný interface | Neexistence zálohování
-Všichni to znaj | Nulové zabezpečení (kdokoliv kdo má přístup na pc mùže smazat celý soubor (z důvodů že není soubor umístěn na sdíleném disku)
-|| Na dokumentu nemùže pracovat více lidí současně
+Všichni to znaj | Nulové zabezpečení (kdokoliv kdo má přístup na pc muže smazat celý soubor (z důvodů že není soubor umístěn na sdíleném disku)
+|| Na dokumentu nemuže pracovat více lidí současně
 || V případě přenesení souboru jinam není zaručena jejich aktuálnost
 
 
@@ -71,10 +75,13 @@ Po zhodnocení následující analýzy, kdy některé z těchto problémů se da
 
   Výhody | Nevýhody
 ------------ | -------------
-řešení všech nevýhod | časová náročnost
+řešení všech nevýhod | časová náročnost implementace
+                                   || nekdo musi SW spravovat (nasazovani, udrzba serveru)
+                                   || nekdo musi resit chyby (maintanance - udrzba)
+                                     
 
     
-**3, výběr řešení**
+**3 výběr řešení**
 Pro účely bakalářské práce jsem se rozhodl vyřešit všechny stávající negativa vývojem SW na klíč.
 
 **4, Vývoj**
@@ -153,18 +160,18 @@ Jsou to textové editory, které jsou vyrobeny speciálně pro použití program
 
  4. Použité technologie
  Řešení budu realizovat jako webovou aplikaci. Server bude tvořit kód v jazyce PHP komunikující s databázi MySQL.
- Klientská strana (GUI) bude tvořeno standardní kombinací HTML (text a struktura), CSS (stylovací jazyk) a jazyk JavaScript pro dynamické problémy (např. validace dat na klientovy, před odesláním na server)
+ Klientská strana (GUI) bude tvořena standardní kombinací HTML (text a struktura), CSS (stylovací jazyk) a jazykem JavaScript (např. validace dat na klientovy, před odesláním na server)
  
  Důvody:
 **PHP**
 - dobře dokumentovaný
 - velká rozšířitelnost
-- velká komunita
+- velká komunita (je snadné najít řešení problému)
 - snadné nasazení
 - rychlost vývoje 
 
  **Javascript** 
-  z důvodu uživatelské přívětivosti UX - user experience (Validace na straně klienta)
+  z důvodu uživatelské přívětivosti UX - user experience (Validace na straně klienta), podpora většiny webových prohlížeču.
 **jQuery**
   nejrozšířenější knihovna (znovupouželný kód) pro Javascript
 **MySQL**
@@ -173,18 +180,24 @@ Jsou to textové editory, které jsou vyrobeny speciálně pro použití program
      
  5. implementace:
 a) návrh obrazovek (prototyp)
-uzivatelum ukazu obrazavku a oni mi daji zpetnou vazbu, udelam zmeny a znova ukazu
-zvazuju technickou narocnost reseni
+Návrh ukázat uživatelům=>zpětá vazba=>případné změny=>návrh ukázat uživatelům
 
+ zvažuju technickou náročnost řešení
+ 
  b) skutečná implementace
-  1. grafický návrh 
+
   
-  2. kód
-  AJAX
-  PDO - používá se sql - nezávislost na použitém SŘBD (pouze malá nebo žádná úprava dotazù )
+  2. grafický návrh
+  3. kód
+   AJAX
+  PDO - používá se sql - nezávislost na použitém SŘBD (pouze malá nebo žádná úprava dotazu)
+  - Export do PDF
+                  mPDF
+                  _https://mpdf.github.io/_
   
   3. persistentní vrstva [db] nějaký zdroj
-  ER model [koncepční model] doplnění až bude vymyšlenej table user, option, auditing
+  Normativní formy
+       ER model [koncepční model] doplnění až bude vymyšlenej table user, option, auditing
   **obrázek**
  fyzicky model
  **obrázek**
@@ -192,25 +205,36 @@ zvazuju technickou narocnost reseni
 
                 
   4. Autorizace a autentizace   SESSION?
-                
+     
+      aplikace není veřejně přístupná - proč autentizuju
+      admin-kdo co
+      uzivatel- kdo co
+       
+   autentizace SESSION
+           
   5. Bezpečnost (owasp top ten)
-  
+   rozepsat všech deset owasp - a jak je řeším
+   SQL injection - co to je? a jak se bránit
+   
   6. Auditing (Kdo co kdy) Obecné info
+Proč auditing, 
+Historizace
 
-  7. Export do PDF
-                  mPDF
-                  _https://mpdf.github.io/_
-  8. Správa verzí
+  
+  7. Správa verzí
 Správa verzí je systém , který zaznamenává změny souboru nebo sady souborů v průběhu času, a uživatel tak může kdykoli obnovit jeho/jejich konkrétní
-verzi (tzv. verzování)**(1)**. Jako systém správy verzí jsem si vybral Git, což je jeden z nejvíce používaných verzovacích systémů. V mém soukromém repozitáři jsem zaznamenával nejenom verze mojí webové aplikace, ale i postupnou tvorbu této bakalářské práce. Bakalářská práce byla kvůli snadnějšimů čtení převedena do jazyka Markdown (Nástroj pro webové vývojáře a sloužící pro převod prostého textu na strukturálně validní XHTML nebo HTML)**(2)**
+verzi (tzv. verzování)**(1)**. Jako systém správy verzí jsem si vybral Git, což je jeden z nejvíce používaných verzovacích systémů. V mém soukromém repozitáři jsem zaznamenával nejenom verze mojí webové aplikace, ale i postupnou tvorbu této bakalářské práce. Bakalářská práce byla kvůli snadnějšimů čtení převedena do jazyka Markdown (Nástroj pro webové vývojáře sloužící pro převod prostého textu na strukturálně validní XHTML nebo HTML)**(2)**
    
      Zdroje:
      1. CHACON, Scott. Pro Git. Praha: CZ.NIC, c2009. CZ.NIC. ISBN 9788090424814. Dostupné také z: http://kramerius.mzk.cz/search/handle/uuid:08825630-78a3-11e5-99af-005056827e52 
         2. Daring FireballL: Markdown. Daring FireballL: Markdown [online]. [cit. 2016-10-16]. Dostupné z: http://web.archive.org/web/20040402182332/http://daringfireball.net/projects/markdown/
 
-9. Testování
+  8. Testování
 manuální testování případně další metody testování
-
+proč to testovat - obecné info
+jak to testovat 
+jaké jsou možnossti
+zkontrolat jestl je to testování nebo jiná technika QA
      Metody:
      
      **Revize partnerem**
@@ -226,8 +250,9 @@ Překladatel (autor kódu) čte řádek za řádkem nebo funkci za funckí a pos
      1. PATTON, Ron. Testování softwaru. Vyd. 1. Praha: Computer Press, 2002. Programování. ISBN 80-7226-636-5.
 
 
-10. migrace stavajicich dat 
-- čištění
+9. migrace stavajicich dat 
+  
+- čištění - základní info, popsat problémy a poléze jejich řešení
 - nahrání
 mysql connector
 _http://dev.mysql.com/doc/mysql-for-excel/en/_
@@ -237,11 +262,10 @@ _http://dev.mysql.com/doc/mysql-for-excel/en/_
 
  6. Dokumentace
         I. programátorská příručka
-        II. uživatelská příručka
-
-
-
-
+          jak to zprovoznit
+          konvence - facebook php konvence - možná jiný, zkusit najít
+          co je v jakém souboru
+       II. uživatelská příručka
 
 
 ####Poznámky
@@ -271,7 +295,6 @@ Návrh řešení (client server architektura, serverová část PHP na Apache HT
  w3schools.com  
  Kniha AJAX  
  Use Case??  
- Dokumentace  
- GIT  
+ Dokumentace 
  jQuery  
  Něco o migraci dat  
